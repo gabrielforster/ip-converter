@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {GetIP} from './Components/GetIP'
 
-function App() {
+function App () {
   return (
     <div className="app">
         <GetIP />
