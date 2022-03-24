@@ -33,7 +33,9 @@ main{
 }
 
 .getip input{
-  text-align: center;
+  padding: 15px 10px;
+  font-size: larger;
+  /* text-align: center; */
   min-width: 3ch;
   height: 1.5rem;
   margin: 0 1px;
@@ -56,20 +58,21 @@ main{
 }
 
 .ip-values{
-  margin-top: 0.6rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .ip-values p{
-  padding: 1.5px;
+  padding: 3px;
   text-align: center;
   min-width: 9ch;
   height: 1.5rem;
-  margin: 0.5rem;
+  margin: 0.3rem;
   border: 1.5px solid #2f93ef;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  background-color: var(--total-white);
 }
 
 

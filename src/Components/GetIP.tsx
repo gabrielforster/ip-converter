@@ -20,7 +20,6 @@ export const GetIP = () => {
         </div>
 
         <IPResult firstQuarter={firstQuarter} secondQuarter={secondQuarter} thirdQuarter={thirdQuarter} fourthQuarter={fourthQuarter}/>
-
       </div>
     </main>
   )
