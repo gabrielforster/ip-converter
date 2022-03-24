@@ -12,6 +12,7 @@ export const GetIP = () => {
   return (
     <main>
       <div className='container'>
+      <h1 className='texts'>Seu IP em valor <strong>decimal</strong>:</h1>
         <div className="getip">
             <input type="number" value={firstQuarter} max={255} onChange={e=>{setFirstQuarter(parseInt(e.target.value))}}/>
             <input type="number" value={secondQuarter} max={255} onChange={e=>{setSecondQuarter(parseInt(e.target.value))}}/>

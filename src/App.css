@@ -7,17 +7,24 @@
 :root{
   --primary: #2f93ef;
   --prompt: #380b2b;
-  --total-white: #ededed;
+  --text: #ccc;
+  --white: #ededed;
+  --total-white: #fefefe;
 }
 
 body{
   font-family: "Source Sans Pro", sans-serif;
-  background-color: var(--total-white);
+  background-color: var(--prompt);
 }
 
 main{
   max-width: 65%;
-  margin: 1rem auto;
+  margin: 2rem auto;
+}
+
+strong{
+  font-weight: 700;
+  color: #ddd;
 }
 
 .container{
@@ -35,39 +42,45 @@ main{
 .getip input{
   padding: 15px 10px;
   font-size: larger;
-  /* text-align: center; */
-  min-width: 3ch;
+  text-align: center;
+  min-width: 6ch;
   height: 1.5rem;
-  margin: 0 1px;
+  margin: 10px;
   border: 1.5px solid #2f93ef;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .ip-results{
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.ip-results h1{
+.texts{
   font-weight: 400;
   margin: 0;
   text-align: center;
+  font-family: monospace;
+  color: var(--text);
 }
 
 .ip-values{
-  margin-top: 2rem;
+  margin-top: 1.2rem;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .ip-values p{
-  padding: 3px;
+  font-weight: 500;
+  padding: 6.5px;
   text-align: center;
-  min-width: 9ch;
-  height: 1.5rem;
+  align-items: center;
+  min-width: 8ch;
+  width: 7rem;
+  height: 2rem;
   margin: 0.3rem;
   border: 1.5px solid #2f93ef;
   border-radius: 5px;
@@ -75,7 +88,20 @@ main{
   background-color: var(--total-white);
 }
 
+/* ----resposive---- */
 
-@media screen and (min-width: 768px) {
+@media (min-width: 992px) {
   
+}
+
+@media (min-width: 768px) {
+  
+}
+
+@media (min-width: 992px) {
+  
+}
+
+@media (min-width: 1200px) {
+
 }
