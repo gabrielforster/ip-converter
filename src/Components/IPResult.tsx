@@ -13,6 +13,7 @@ interface Props{
 export const IPResult: React.FC<Props> = ({first,second,third,fourth}) => {
 
   const [showInfos, setShowInfos] = React.useState(false)
+  
 
   const ipToBin = (number:number) => {
     let finalBinIp:string = number.toString(2)
@@ -20,6 +21,14 @@ export const IPResult: React.FC<Props> = ({first,second,third,fourth}) => {
       finalBinIp = '0' + finalBinIp
     }
     return (finalBinIp)
+  }
+
+  const ipClass = () => {
+    if(first < 128) return 'A'
+    else if(first < 192) return 'B'
+    else if(first < 224) return 'C'
+    else if(first < 240) return 'D'
+    else return 'E' 
   }
 
   return (
@@ -35,6 +44,11 @@ export const IPResult: React.FC<Props> = ({first,second,third,fourth}) => {
 
         <hr />
 
+        <div id='ip-infos' className="ip-infos">
+          <h2 className='ip-class'>Classe</h2>
+          <p className='values'>{ipClass()}</p>
+        </div>
+
         <a className='showmore' 
         onClick={()=> setShowInfos(showInfos == true ? false : true)}
         href="#ip-infos"
@@ -46,7 +60,7 @@ export const IPResult: React.FC<Props> = ({first,second,third,fourth}) => {
           </a>
         { showInfos
           ?
-          <IPInfos first={first} second={second} third={third} fourth={fourth} />
+          <IPInfos first={ipToBin(first)} second={ipToBin(second)} third={ipToBin(third)} fourth={ipToBin(fourth)} />
           :
           null
         }

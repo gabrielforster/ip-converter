@@ -1,26 +1,51 @@
-import React from 'react'
+import * as React from 'react'
 
-interface Props{
-  first: number,
-  second: number,
-  third: number,
-  fourth: number;
+interface Infos{
+  first: string,
+  second: string,
+  third: string,
+  fourth: string;
 }
 
-export const IPInfos: React.FC<Props> = ({first, second, third, fourth}) => {
-  
-  const ipClass = () => {
-    if(first < 128) return 'A'
-    else if(first < 192) return 'B'
-    else if(first < 224) return 'C'
-    else if(first < 240) return 'D'
-    else return 'E' 
+export const IPInfos: React.FC<Infos> = ({first, second, third, fourth}) => {
+
+  const [ipBar, setipBar] = React.useState(0)
+  const [mask, setMask] = React.useState('')
+ 
+  const getMask = (ipBar:number) => {
+    let cutPoint
+    {ipBar <=8 ? cutPoint = ipBar : cutPoint = ipBar - 8}
+
+    //testing
+    let finalMask = [parseInt(first, 2), '.', parseInt(second, 2), '.', parseInt(third, 2),'.', parseInt(fourth, 2)].join('')
+    setMask(finalMask)
   }
- 
- 
+
   return (
-    <div id='ip-infos' className="ip-infos">
-      <h2 className='ip-class'>Classe: {ipClass()}</h2>
+    <>
+    <div className="bar">
+      <h2 className='texts'>
+        Informe o barramento do seu IP
+      </h2>
+      <div className="get-bar">
+        <input type="number" value={ipBar} onChange={(e)=>setipBar(e.target.valueAsNumber)}/>
+        <button className='bar-btn' onClick={()=>getMask(ipBar)}>Mostrar</button>
+      </div>
+
+      <div className="mask">
+        {mask !== ''
+        ?
+        <div className="finalMask">
+          <h2 className='texts'>Máscara do IP</h2>
+          <p className='values'>{mask}</p>
+        </div>
+        :
+        null
+        }
+      </div>
     </div>
+
+    
+    </>
   )
 }

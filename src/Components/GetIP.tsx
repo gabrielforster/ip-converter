@@ -18,30 +18,21 @@ export const GetIP = () => {
       (thirdQuarter < 256 && thirdQuarter != NaN) &&
        (fourthQuarter < 256 && fourthQuarter != NaN) &&
         values > 0)
-      {
-      return true
-      }
-    else{
-      return false
-    }
+      { return true }
+    else return false
   }
 
   const checkValues = () => {
-    if (checkHigh() === true){
-      return (<IPResult first={firstQuarter} second={secondQuarter} third={thirdQuarter} fourth={fourthQuarter}/>)
-    }
-    else{
-      return(<ErrorMessage/>)
-    }    
-    // if (( firstQuarter && secondQuarter && thirdQuarter && fourthQuarter) != NaN && values > 0 ){
-    //   if ((firstQuarter && secondQuarter) < 256){
-    //     console.log('teste')
-    //   return (<IPResult first={firstQuarter} second={secondQuarter} third={thirdQuarter} fourth={fourthQuarter}/>)
-    //   }
-    // }
-    // else{
-    //   return (<ErrorMessage/>)
-    // }
+    if (checkHigh() === true){ 
+      return (<IPResult 
+        first={firstQuarter}
+        second={secondQuarter}
+        third={thirdQuarter}
+        fourth={fourthQuarter}
+        />) 
+      }
+      
+    else return(<ErrorMessage/>) 
   }
 
   return (
