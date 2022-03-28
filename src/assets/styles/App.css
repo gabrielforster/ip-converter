@@ -7,24 +7,32 @@
 :root{
   --primary: #2f93ef;
   --prompt: #380b2b;
+  --btn: #4e0a3b;
   --text: #ccc;
   --white: #ededed;
   --total-white: #fefefe;
 }
 
 body{
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: monospace;
   background-color: var(--prompt);
 }
 
 main{
   max-width: 65%;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 
 strong{
   font-weight: 700;
   color: #ddd;
+}
+
+hr{
+  margin-top: 1.5rem;
+  color: var(--white);
+  width: 100%;
+  border-radius: 40%;
 }
 
 .container{
@@ -37,6 +45,7 @@ strong{
 .getip{
   display: flex;
   justify-content: center;
+  margin-top: 0.5rem;
 }
 
 .getip input{
@@ -51,8 +60,26 @@ strong{
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
-.ip-results{
-  margin: 2.5rem 0;
+.convert-btn{
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.to-convert-btn{
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-family: monospace;
+  font-weight: bolder;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--btn);
+  color: var(--text);
+}
+
+.results{
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,18 +89,18 @@ strong{
   font-weight: 400;
   margin: 0;
   text-align: center;
-  font-family: monospace;
   color: var(--text);
 }
 
 .ip-values{
-  margin-top: 1.2rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
 .ip-values p{
+  font-family: sans-serif;
   font-weight: 500;
   padding: 6.5px;
   text-align: center;
@@ -86,6 +113,36 @@ strong{
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
   background-color: var(--total-white);
+}
+
+.showmore {
+  text-decoration: none;
+  padding: 7px 15px;
+  background-color: var(--btn);
+  border-radius: 5px;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  display: flex;
+  color: var(--text);
+}
+
+.showmore h3{
+  font-size: 1.1rem;
+  font-weight: bolder;
+}
+
+.showmore img {
+  margin-left: 1rem;
+}
+
+.ip-infos{
+  margin-top: 0.5rem;
+}
+
+.ip-class{
+  font-size: 1rem;
+  color: var(--text);
 }
 
 /* ----resposive---- */
