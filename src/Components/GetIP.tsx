@@ -40,20 +40,20 @@ export const GetIP = () => {
       <div className='container'>
         <h1 className='texts'>Seu IP em valores <strong>decimais</strong>:</h1>
         <div className="getip">
-          <input type="number" value={firstQuarter} max={255} onChange={e=>{
-            setFirstQuarter(parseInt(e.target.value)) 
+          <input type="number" value={firstQuarter} max={255} onChange={({target})=>{
+            setFirstQuarter(parseInt(target.value)) 
             setShowResults(false)
             }}/>
-          <input type="number" value={secondQuarter} max={255} onChange={e=>{
-            setSecondQuarter(parseInt(e.target.value))
+          <input type="number" value={secondQuarter} max={255} onChange={({target})=>{
+            setSecondQuarter(parseInt(target.value))
             setShowResults(false)
             }}/>
-          <input type="number" value={thirdQuarter} max={255} onChange={e=>{
-            setThirdQuarter(parseInt(e.target.value))
+          <input type="number" value={thirdQuarter} max={255} onChange={({target})=>{
+            setThirdQuarter(parseInt(target.value))
             setShowResults(false)
             }}/>
-          <input type="number" value={fourthQuarter} max={255} onChange={e=>{
-            setFourthQuarter(parseInt(e.target.value))
+          <input type="number" value={fourthQuarter} max={255} onChange={({target})=>{
+            setFourthQuarter(parseInt(target.value))
             setShowResults(false)
             }}/>
         </div>

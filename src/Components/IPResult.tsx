@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { IPInfos } from './IPInfos'
-import arrDown from '../assets/imgs/arrDown.svg'
-import arrRight from '../assets/imgs/arrRight.svg'
+import arrDown from '../assets/img/arrDown.svg'
+import arrRight from '../assets/img/arrRight.svg'
 
 interface Props{
   first: number,
@@ -14,7 +14,6 @@ export const IPResult: React.FC<Props> = ({first,second,third,fourth}) => {
 
   const [showInfos, setShowInfos] = React.useState(false)
   
-
   const ipToBin = (number:number) => {
     let finalBinIp:string = number.toString(2)
     while(finalBinIp.length<8){

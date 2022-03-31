@@ -9,17 +9,43 @@ interface Infos{
 
 export const IPInfos: React.FC<Infos> = ({first, second, third, fourth}) => {
 
-  const [ipBar, setipBar] = React.useState(0)
   const [mask, setMask] = React.useState('')
+  const [ipBar, setipBar] = React.useState(0)
+  const [cutPoint, setCutPoint] = React.useState(0)
+  const [cutOctet, setCutOctet] = React.useState(0)
+
+  const ipToBin = (number:number) => {
+    let finalBinIp:string = number.toString(2)
+    while(finalBinIp.length<8){
+      finalBinIp = '0' + finalBinIp
+    }
+    return (finalBinIp)
+  }
  
   const getMask = (ipBar:number) => {
-    let cutPoint
-    {ipBar <=8 ? cutPoint = ipBar : cutPoint = ipBar - 8}
+   
+    {
+      ipBar <=8 ? setCutPoint(ipBar) :
+      ipBar <=16 ? setCutPoint(ipBar + 1) :
+      ipBar <=24 ? setCutPoint(ipBar + 2) :
+      setCutPoint(ipBar + 3)  
+    }
+    
+    {
+      ipBar <= 8 ? setCutOctet(1) : 
+      ipBar > 8 ? setCutOctet(2) : 
+      ipBar > 16 ? setCutOctet(3) : 
+      ipBar > 24 ? setCutOctet(4) : null
+    }
+  
+    let arrMask = [first, '.', second,'.', third, '.', fourth]
 
     //testing
     let finalMask = [parseInt(first, 2), '.', parseInt(second, 2), '.', parseInt(third, 2),'.', parseInt(fourth, 2)].join('')
     setMask(finalMask)
   }
+
+  console.log(cutPoint)
 
   return (
     <>
