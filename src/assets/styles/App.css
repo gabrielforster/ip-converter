@@ -129,6 +129,7 @@ hr{
   margin:.5rem 0;
   font-size: 1rem;
   display: flex;
+  align-items: center;
   color: var(--text);
 }
 
@@ -138,7 +139,9 @@ hr{
 }
 
 .showmore img {
-  margin-left: 1rem;
+  margin-left: .5rem;
+  height: 1rem;
+  width: 1rem;
 }
 
 .ip-class{
