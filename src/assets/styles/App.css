@@ -12,13 +12,23 @@
   --total-white: #fefefe;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 body{
   font-family: monospace;
   background-color: var(--prompt);
 }
 
 main{
-  max-width: 80%;
   margin: 1rem auto;
   display: flex;
   align-items: center;
@@ -41,6 +51,7 @@ hr{
 .container{
   display: flex;
   flex-direction: column;
+  max-width: 80%;
   margin: 0 auto;
 }
 
@@ -136,12 +147,72 @@ hr{
 
 @media (min-width: 768px) {
   
+  .container{
+    max-width: 65%;
+  }
+
+  .infos{
+    font-size: 1rem;
+  }
 }
 
 @media (min-width: 992px) {
-  
+
+  h1.texts{
+    font-size: 1.5rem;
+  }
+
+  .to-convert-btn{
+    font-size: 1.3rem;
+  }
+  .infos{
+    font-size: 1.2rem;
+  }
+  p.values{
+    font-size: 1.2rem;
+  }
+
+  .getip input{
+    padding: 17px 15px;
+    font-size: 1.25rem;
+  }
+
+  .get-bitmask input{
+    padding: 17px 15px;
+    font-size: 1.25rem;
+    max-width: 5ch;
+  }
+
 }
 
 @media (min-width: 1200px) {
+  .container{
+    max-width: 90%;
+  }
+
+  h1.texts{
+    font-size: 1.8rem;
+  }
+
+  .to-convert-btn{
+    font-size: 1.4rem;
+  }
+  .infos{
+    font-size: 1.3rem;
+  }
+  p.values{
+    font-size: 1.3rem;
+  }
+
+  .getip input{
+    padding: 17px 15px;
+    font-size: 1.35rem;
+  }
+
+  .get-bitmask input{
+    padding: 17px 15px;
+    font-size: 1.35rem;
+    max-width: 5ch;
+  }
 
 }
