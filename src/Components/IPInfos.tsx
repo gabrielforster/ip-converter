@@ -1,19 +1,20 @@
 import * as React from 'react'
+const Netmask = require('netmask').Netmask
 
 interface Infos{
-  first: string,
-  second: string,
-  third: string,
-  fourth: string;
+  first: number,
+  second: number,
+  third: number,
+  fourth: number,
+  ipBar: number,
+  mask: string,
+  broadcast: string,
+  lastIP: string,
+  firstIP: string,
 }
 
-export const IPInfos: React.FC<Infos> = ({first, second, third, fourth}) => {
-
-  const [mask, setMask] = React.useState('')
-  const [ipBar, setipBar] = React.useState(0)
-  const [cutPoint, setCutPoint] = React.useState(0)
-  const [cutOctet, setCutOctet] = React.useState(0)
-
+export const IPInfos: React.FC<Infos> = ({first, second, third, fourth, ipBar, mask, broadcast, firstIP, lastIP}) => {
+  
   const ipToBin = (number:number) => {
     let finalBinIp:string = number.toString(2)
     while(finalBinIp.length<8){
@@ -21,50 +22,41 @@ export const IPInfos: React.FC<Infos> = ({first, second, third, fourth}) => {
     }
     return (finalBinIp)
   }
- 
-  const getMask = (ipBar:number) => {
-   
-    {
-      ipBar <=8 ? setCutPoint(ipBar) :
-      ipBar <=16 ? setCutPoint(ipBar + 1) :
-      ipBar <=24 ? setCutPoint(ipBar + 2) :
-      setCutPoint(ipBar + 3)  
-    }
-    
-    {
-      ipBar <= 8 ? setCutOctet(1) : 
-      ipBar > 8 ? setCutOctet(2) : 
-      ipBar > 16 ? setCutOctet(3) : 
-      ipBar > 24 ? setCutOctet(4) : null
-    }
   
-    let arrMask = [first, '.', second,'.', third, '.', fourth]
-
-    //testing
-    let finalMask = [parseInt(first, 2), '.', parseInt(second, 2), '.', parseInt(third, 2),'.', parseInt(fourth, 2)].join('')
-    setMask(finalMask)
+  const ipClass = () => {
+    if(first < 128) return 'A'
+    else if(first < 192) return 'B'
+    else if(first < 224) return 'C'
+    else if(first < 240) return 'D'
+    else return 'E' 
   }
-
-  console.log(cutPoint)
 
   return (
     <>
-    <div className="bar">
-      <h2 className='texts'>
-        Informe o barramento do seu IP
-      </h2>
-      <div className="get-bar">
-        <input type="number" value={ipBar} onChange={(e)=>setipBar(e.target.valueAsNumber)}/>
-        <button className='bar-btn' onClick={()=>getMask(ipBar)}>Mostrar</button>
-      </div>
-
+    <div className="infos">
       <div className="mask">
         {mask !== ''
         ?
-        <div className="finalMask">
-          <h2 className='texts'>Máscara do IP</h2>
+        <>
+          <h2 className="texts">IP em valores <strong>binários</strong></h2>
+          <p className='values bin-ip'>{ipToBin(first)}.{ipToBin(second)}.{ipToBin(third)}.{ipToBin(fourth)}</p>
+
+          <h2 className='texts'><strong>Classe</strong> do IP</h2>
+          <p className='values'>{ipClass()}</p>
+          
+          <h2 className='texts'><strong>Máscara</strong> da rede</h2>
           <p className='values'>{mask}</p>
-        </div>
+          
+          <h2 className='texts'>Endereço de <strong>Broadcast</strong> da rede</h2>
+          <p className='values'>{broadcast}</p>
+          
+          <h2 className='texts'><strong>Primeiro</strong> IP da rede</h2>
+          <p className='values'>{firstIP}</p>
+          
+          <h2 className='texts'><strong>Último</strong> IP da rede</h2>
+          <p className='values'>{lastIP}</p>
+
+        </>
         :
         null
         }
