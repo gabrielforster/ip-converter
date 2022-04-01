@@ -1,6 +1,6 @@
 {
   "name": "ip-converter",
-  "homepage": "ip-converter/",
+  "homepage": "https://gabrielforster.github.io/ip-converter/",
   "version": "0.1.0",
   "author": "gabrielforster",
   "private": true,
@@ -24,7 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "ghpages -d dist"
   },
   "eslintConfig": {
     "extends": [
